@@ -1,0 +1,3 @@
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles/edit_cache.dir
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles/S3_laboratory_work_3.dir
