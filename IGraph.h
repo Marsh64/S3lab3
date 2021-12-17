@@ -49,6 +49,10 @@ public:
         //adjlist = ArraySequence<UnorderedMap<TName, Node, hashfunction>>();
         //connection = UnorderedMap<int, int, hashint>();
     }
+    ~Graph(){
+        for (int i = 0; i < adjlist.GetLength(); i++)
+            delete adjlist[i];
+    }
 
     void AddVertex(const TName &name) {
         if (connection.ContainsKey(name))
