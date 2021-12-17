@@ -88,7 +88,7 @@ public:
             adjlist[v2] = map;
         } else {
             if (adjlist[v2]->ContainsKey(name1))
-                adjlist[v2]->Remove(1);
+                adjlist[v2]->Remove(name1);
             //возникает повторная дуга
             adjlist[v2]->Add(name1, {weight, v1});
         }
@@ -129,7 +129,7 @@ public:
             if (i == vrtx)
                 continue;//пропустим столбец который нужно удалить
 
-            if (adjlist[i]->ContaisKey(name))
+            if (adjlist[i]->ContainsKey(name))
                 adjlist[i]->Remove(name);
         }
 
@@ -188,14 +188,27 @@ public:
         return adjlist[v]->GetCapasity();
     }//выдает степень вершины(с сылками позже сделаю)
 
+    TWeight getWeight(const TName& v1, const TName& v2) {
+        if (!(connection.ContainsKey(v1)) || !(connection.ContainsKey(v2)))
+            throw ErrorInMissingVertex();//указатели указывают не на вершины
+
+        int v_1 = connection.Get(v1);
+        int v_2 = connection.Get(v2);
+
+        if (!adjlist[v_1] || !adjlist[v_1]->ContainsKey(v2))
+            throw ErrorInMissingEdge();
+
+        return adjlist[v_1]->Get(v2).weight;
+    }
 
     ArraySequence<std::pair<TName, int>>* Colouring(){
+        ArraySequence<std::pair<TName, int>>* colours = new ArraySequence<std::pair<TName, int>>;
+        if (adjlist.GetLength() == 0)
+            return colours;
+
         SortedSequence<Trio> degree;
         for (auto u : connection)
             degree.Add({u.key, (int)u.element, VertexDegree(u.element)});
-
-        ArraySequence<std::pair<TName, int>>* colours = new ArraySequence<std::pair<TName, int>>;
-
 
         //for (auto u : connection) {
         //    colours->Append({u.key, 0});
@@ -211,8 +224,9 @@ public:
         for (int h = 0; h < degree.GetLength(); h++){
             clr++;
 
-            for (auto u : connection) {
-                int i = u.element;
+            for (int j = 0; j < degree.GetLength(); j++) {
+                int i = degree[j].vertex;
+                //int i = u.element;
                 if (colours->Get(degree[i].vertex).second != 0)
                     continue;
                 bool log = true;//стоит ли красить
