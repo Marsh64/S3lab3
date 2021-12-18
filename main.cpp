@@ -1,9 +1,9 @@
 #include <iostream>
-#include "IDictionary.h"
+#include "Additional Stuctures/IDictionary.h"
 #include "ArraySequence.h"
-#include "LinkedListSequence.h"
+#include "Sequence/LinkedListSequence.h"
 #include "IDirectedGraphLL.h"
-#include "IUnorderedMap.h"
+#include "Additional Stuctures/IUnorderedMap.h"
 #include "IDirectedGraphUM.h"
 #include "IGraphUM.h"
 #include "IGraph.h"

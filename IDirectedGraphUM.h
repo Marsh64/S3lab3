@@ -4,9 +4,9 @@
 
 #ifndef S3_LABORATORY_WORK_3_IDIRECTEDGRAPHUM_H
 #define S3_LABORATORY_WORK_3_IDIRECTEDGRAPHUM_H
-#include "IUnorderedMap.h"
+#include "Additional Stuctures/IUnorderedMap.h"
 #include "ArraySequence.h"
-#include "LinkedListSequence.h"
+#include "Sequence/LinkedListSequence.h"
 
 template<class TWeight, class TName, int (*hashfunction)(const TName&, size_t) = umhashint>
 class DirectedGraphUM{

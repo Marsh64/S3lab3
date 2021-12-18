@@ -2,7 +2,7 @@
 #define LinkedListSequence_h
 
 #include "Sequence.h"
-#include "LinkedList.cpp"
+#include "../Additional Stuctures/LinkedList.cpp"
 
 template <class T>
 class LinkedListSequence : Sequence<T>{

@@ -4,10 +4,10 @@
 
 #ifndef S3_LABORATORY_WORK_3_IGRAPHUM_H
 #define S3_LABORATORY_WORK_3_IGRAPHUM_H
-#include "IUnorderedMap.h"
+#include "Additional Stuctures/IUnorderedMap.h"
 #include "ArraySequence.h"
-#include "LinkedListSequence.h"
-#include "SortedSequence.h"
+#include "Sequence/LinkedListSequence.h"
+#include "Sequence/SortedSequence.h"
 
 template<class TWeight, class TName, int (*hashfunction)(const TName&, size_t) = umhashint>
 class GraphUM {

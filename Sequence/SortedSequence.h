@@ -4,7 +4,7 @@
 
 #ifndef S3_LABORATORY_WORK_2_SORTEDSEQUENCE_H
 #define S3_LABORATORY_WORK_2_SORTEDSEQUENCE_H
-#include "ArraySequence.h"
+#include "../ArraySequence.h"
 
 
 

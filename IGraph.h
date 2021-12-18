@@ -4,9 +4,9 @@
 
 #ifndef S3_LABORATORY_WORK_3_IGRAPH_H
 #define S3_LABORATORY_WORK_3_IGRAPH_H
-#include "IUnorderedMap.h"
+#include "Additional Stuctures/IUnorderedMap.h"
 #include "ArraySequence.h"
-#include "SortedSequence.h"
+#include "Sequence/SortedSequence.h"
 
 template<class TWeight, class TName, int (*hashfunction)(const TName&, size_t) = umhashint>
 class Graph {
@@ -177,7 +177,7 @@ public:
 
 
         for (auto val : *adjlist[v1]) {
-            if (val.element.vertex == v2)//////////////////////////////////////////////////////////////////////////////
+            if (val.element.vertex == v2)
                 return true;
         }
         return false;
@@ -214,23 +214,17 @@ public:
         for (auto u : connection)
             degree.Add({u.key, (int)u.element, VertexDegree(u.element)});
 
-        //for (auto u : connection) {
-        //    colours->Append({u.key, 0});
-        //}
         TName nm = connection.begin()->key;
         for (int i = 0; i < adjlist.GetLength(); i++)
             colours->Append({nm, 0});
 
-        int clr = 0;//цвет
-        std::cout << degree << std::endl;
-        //std::cout << connection << std::endl;
+        int clr = 0;
 
         for (int h = 0; h < degree.GetLength(); h++){
             clr++;
 
             for (int j = 0; j < degree.GetLength(); j++) {
                 int i = degree[j].vertex;
-                //int i = u.element;
                 if (colours->Get(degree[i].vertex).second != 0)
                     continue;
                 bool log = true;//стоит ли красить
@@ -272,55 +266,50 @@ public:
 
         return colours;
     }
+    ArraySequence<std::pair<TName, int>>* Connectivity() {
+        ArraySequence<std::pair<TName, int>>* result = new ArraySequence<std::pair<TName, int>>;
+        if (adjlist.GetLength() == 0)
+            return result;
+
+        UnorderedMap<TName, int, hashfunction> colours;
+        for (auto u : connection) {
+            colours.Add(u.key, 0);
+        }
+
+        int clr = 0;
+        for (auto u : connection) {
+            if (colours.Get(u.key) != 0)
+                continue;
+
+            clr++;
+            LinkedList<TName> stack;
+            stack.Append(u.key);
+            colours.Swap(u.key, clr);
+            result->Append({u.key, clr});
+            while (stack.GetLength()) {
+                TName& element = stack.Get(0);
+                stack.Remove(0);
+
+                auto arr = adjlist[connection[element]];
+                if (!arr) {
+                    continue;
+                }
+                for (auto j : *arr) {
+                    std::cout << j.key << ", ";
+                    if (colours.Get(j.key))
+                        continue;
+                    colours.Swap(j.key, clr);
+                    stack.Append(j.key);
+                    result->Append({j.key, clr});
+                }
+            }
+        }
+        return result;
+    }
+
 
 };
-/*
-bool isAdjacent(size_t v1, size_t v2){
-    if (v1 >= adjlist.GetLength() || v1 < 0 || v2 >= adjlist.GetLength() || v2 < 0)
-        throw ErrorInMissingVertex();
 
-    bool log = false;
-    for (auto &val : *adjlist[v1]) {
-        if (val.vertex == v2)
-            return true;
-    }
-
-    for (int i = 0; i < adjlist.GetLength(); i++){
-        if (i == v1)
-            continue;
-        if (!adjlist[i])
-            continue;
-        for (auto &val : *adjlist[i]) {
-            if (val.vertex == v1)
-                RemoveEdgePrivate(i, val.vertex);
-        }
-    }
-}//раскрашиваем как обычный граф
-
-size_t VertexDegree(size_t v){
-    if (v >= adjlist.GetLength() || v < 0)
-        throw ErrorInMissingVertex();
-
-    size_t deg = 0;
-
-    if (table[])
-    for (auto &val : *adjlist[v1]) {
-        if (val.vertex == v2)
-            return true;
-    }
-
-    for (int i = 0; i < adjlist.GetLength(); i++){
-        if (i == v1)
-            continue;
-        if (!adjlist[i])
-            continue;
-        for (auto &val : *adjlist[i]) {
-            if (val.vertex == v1)
-                RemoveEdgePrivate(i, val.vertex);
-        }
-    }
-}//считаем как в обычном графе
- */
 
 template<class T1, class T2>
 std::ostream &operator<<(std::ostream &out, const std::pair<T1, T2> &nd) {
