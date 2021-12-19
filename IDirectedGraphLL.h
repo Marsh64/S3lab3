@@ -4,7 +4,7 @@
 
 #ifndef S3_LABORATORY_WORK_3_IDIRECTEDGRAPHLL_H
 #define S3_LABORATORY_WORK_3_IDIRECTEDGRAPHLL_H
-#include "ArraySequence.h"
+#include "Sequence/ArraySequence.h"
 #include "Sequence/LinkedListSequence.h"
 
 template<class TWeight>

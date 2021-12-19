@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Additional Stuctures/IDictionary.h"
-#include "ArraySequence.h"
+#include "Sequence/ArraySequence.h"
 #include "Sequence/LinkedListSequence.h"
 #include "IDirectedGraphLL.h"
 #include "Additional Stuctures/IUnorderedMap.h"

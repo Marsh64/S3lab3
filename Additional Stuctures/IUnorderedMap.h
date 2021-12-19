@@ -148,6 +148,25 @@ public:
         }
     };
 
+    void Remove() {
+        for (int i = 0; i < table.GetLength(); i++) {
+            auto temp = table[i];
+            while (temp != nullptr) {
+                auto del = temp;
+                temp = temp->next;
+                delete del;
+            }
+        }
+
+        start = nullptr; //указатель на самый первый элемент
+        table.Resize(0);
+        table.Resize(8);
+        for (int i = 0; i < table.GetLength(); i++)
+            table[i] = nullptr;
+        size = table.GetLength(); //Кол-во ячеек в массиве
+        amount = 0; //Кол-во элементов во всей таблице
+    }
+
    //UnorderedMap(const Dictionary& dict){
    //    table = dict.table;
    //    size = dict.size;

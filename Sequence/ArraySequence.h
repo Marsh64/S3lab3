@@ -4,8 +4,8 @@
 
 #ifndef S3_LABORATORY_WORK_2_ARRAYSEQUENCE_H
 #define S3_LABORATORY_WORK_2_ARRAYSEQUENCE_H
-#include "Sequence/Sequence.h"
-#include "Additional Stuctures/DynamicArray.cpp"
+#include "Sequence.h"
+#include "../Additional Stuctures/DynamicArray.cpp"
 
 template <class T>
 class ArraySequence : public Sequence<T>{

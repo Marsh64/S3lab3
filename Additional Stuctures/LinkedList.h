@@ -18,6 +18,8 @@ public:
     class iterator {
         element* item;
     public:
+        friend LinkedList<T>;
+
         iterator(element *item): item(item) {}
 
         T& operator *() {

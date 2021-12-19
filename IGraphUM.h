@@ -5,7 +5,7 @@
 #ifndef S3_LABORATORY_WORK_3_IGRAPHUM_H
 #define S3_LABORATORY_WORK_3_IGRAPHUM_H
 #include "Additional Stuctures/IUnorderedMap.h"
-#include "ArraySequence.h"
+#include "Sequence/ArraySequence.h"
 #include "Sequence/LinkedListSequence.h"
 #include "Sequence/SortedSequence.h"
 
