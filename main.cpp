@@ -2,12 +2,12 @@
 #include "Additional Stuctures/IDictionary.h"
 #include "Sequence/ArraySequence.h"
 #include "Sequence/LinkedListSequence.h"
-#include "IDirectedGraphLL.h"
+#include "Bin/IDirectedGraphLL.h"
 #include "Additional Stuctures/IUnorderedMap.h"
-#include "IDirectedGraphUM.h"
-#include "IGraphUM.h"
+#include "Bin/IDirectedGraphLLCon.h"
+#include "Bin/IGraphLLCon.h"
+#include "Bin/IGraphUMCon.h"
 #include "IGraph.h"
-#include "IGraph (1).h"
 #include "TestGraph.h"
 
 int main() {

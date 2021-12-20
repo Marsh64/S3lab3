@@ -2,12 +2,12 @@
 // Created by adm on 09.12.2021.
 //
 
-#ifndef S3_LABORATORY_WORK_3_IGRAPHUM_H
-#define S3_LABORATORY_WORK_3_IGRAPHUM_H
-#include "Additional Stuctures/IUnorderedMap.h"
-#include "Sequence/ArraySequence.h"
-#include "Sequence/LinkedListSequence.h"
-#include "Sequence/SortedSequence.h"
+#ifndef S3_LABORATORY_WORK_3_IGRAPHLLCON_H
+#define S3_LABORATORY_WORK_3_IGRAPHLLCON_H
+#include "../Additional Stuctures/IUnorderedMap.h"
+#include "../Sequence/ArraySequence.h"
+#include "../Sequence/LinkedListSequence.h"
+#include "../Sequence/SortedSequence.h"
 
 template<class TWeight, class TName, int (*hashfunction)(const TName&, size_t) = umhashint>
 class GraphUM {
@@ -292,4 +292,4 @@ size_t VertexDegree(size_t v){
 
 
 
-#endif //S3_LABORATORY_WORK_3_IGRAPHUM_H
+#endif //S3_LABORATORY_WORK_3_IGRAPHLLCON_H

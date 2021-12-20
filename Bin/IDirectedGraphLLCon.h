@@ -2,11 +2,11 @@
 // Created by adm on 09.12.2021.
 //
 
-#ifndef S3_LABORATORY_WORK_3_IDIRECTEDGRAPHUM_H
-#define S3_LABORATORY_WORK_3_IDIRECTEDGRAPHUM_H
-#include "Additional Stuctures/IUnorderedMap.h"
-#include "Sequence/ArraySequence.h"
-#include "Sequence/LinkedListSequence.h"
+#ifndef S3_LABORATORY_WORK_3_IDIRECTEDGRAPHLLCON_H
+#define S3_LABORATORY_WORK_3_IDIRECTEDGRAPHLLCON_H
+#include "../Additional Stuctures/IUnorderedMap.h"
+#include "../Sequence/ArraySequence.h"
+#include "../Sequence/LinkedListSequence.h"
 
 template<class TWeight, class TName, int (*hashfunction)(const TName&, size_t) = umhashint>
 class DirectedGraphUM{
@@ -135,4 +135,4 @@ public:
 };
 
 
-#endif //S3_LABORATORY_WORK_3_IDIRECTEDGRAPHUM_H
+#endif //S3_LABORATORY_WORK_3_IDIRECTEDGRAPHLLCON_H

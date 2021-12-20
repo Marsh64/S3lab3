@@ -8,11 +8,11 @@
 
 void testAdding(){
     srand(679);
-    Graph<int, int> graph;
+    Graph<int> graph;
 
     int len = rand()%100 + 1;
     for (int i = 0; i < len; i++)
-        graph.AddVertex(i);
+        graph.AddVertex();
 
     assert(graph.Colouring()->GetLength() == len);
     //Кол-во вершин проверяется с помощью связности
@@ -39,15 +39,15 @@ void testAdding(){
 
 void testRemoving(){
     srand(679);
-    Graph<int, int> graph1;
-    Graph<int, int> graph2;
-    Graph<int, int> graph3;
+    Graph<int> graph1;
+    Graph<int> graph2;
+    Graph<int> graph3;
 
     int len = rand()%100;
     for (int i = 0; i < len; i++){
-        graph1.AddVertex(i);
-        graph2.AddVertex(i);
-        graph3.AddVertex(i);
+        graph1.AddVertex();
+        graph2.AddVertex();
+        graph3.AddVertex();
     }
 
     for (int i = 0; i < len%25; i++){
