@@ -3,4 +3,4 @@ project(S3_laboratory_work_3)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(S3_laboratory_work_3 main.cpp)
+add_executable(S3_laboratory_work_3 main.cpp TestGraph.cpp)

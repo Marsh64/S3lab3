@@ -1,1 +1,1 @@
-/usr/bin/g++.exe -g  -Wl,--enable-auto-import CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o  -o S3_laboratory_work_3.exe -Wl,--out-implib,libS3_laboratory_work_3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
+/usr/bin/g++.exe -g  -Wl,--enable-auto-import CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o CMakeFiles/S3_laboratory_work_3.dir/TestGraph.cpp.o  -o S3_laboratory_work_3.exe -Wl,--out-implib,libS3_laboratory_work_3.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

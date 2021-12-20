@@ -159,8 +159,6 @@ public:
     TWeight getWeight(const TName& v1, const TName& v2) {
         if (!(connection.ContainsKey(v1)) || !(connection.ContainsKey(v2)))
             throw ErrorInMissingVertex();//указатели указывают не на вершины
-//        if (connection.Get(name) >= adjlist.GetLength() || connection.Get(name) < 0)
-//            throw ErrorInMissingVertex();
 
         int v_1 = connection.Get(v1);
         int v_2 = connection.Get(v2);

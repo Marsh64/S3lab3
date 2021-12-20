@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/TestGraph.cpp">
+			<Option target="S3_laboratory_work_3"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/TestGraph.h">
+			<Option target="S3_laboratory_work_3"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/main.cpp">
 			<Option target="S3_laboratory_work_3"/>
 		</Unit>

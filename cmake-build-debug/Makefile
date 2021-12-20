@@ -143,6 +143,33 @@ S3_laboratory_work_3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/S3_laboratory_work_3.dir/build.make CMakeFiles/S3_laboratory_work_3.dir/build
 .PHONY : S3_laboratory_work_3/fast
 
+TestGraph.o: TestGraph.cpp.o
+
+.PHONY : TestGraph.o
+
+# target to build an object file
+TestGraph.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/S3_laboratory_work_3.dir/build.make CMakeFiles/S3_laboratory_work_3.dir/TestGraph.cpp.o
+.PHONY : TestGraph.cpp.o
+
+TestGraph.i: TestGraph.cpp.i
+
+.PHONY : TestGraph.i
+
+# target to preprocess a source file
+TestGraph.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/S3_laboratory_work_3.dir/build.make CMakeFiles/S3_laboratory_work_3.dir/TestGraph.cpp.i
+.PHONY : TestGraph.cpp.i
+
+TestGraph.s: TestGraph.cpp.s
+
+.PHONY : TestGraph.s
+
+# target to generate assembly for a file
+TestGraph.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/S3_laboratory_work_3.dir/build.make CMakeFiles/S3_laboratory_work_3.dir/TestGraph.cpp.s
+.PHONY : TestGraph.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -179,6 +206,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... S3_laboratory_work_3"
+	@echo "... TestGraph.o"
+	@echo "... TestGraph.i"
+	@echo "... TestGraph.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

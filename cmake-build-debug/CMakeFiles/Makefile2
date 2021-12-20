@@ -94,12 +94,12 @@ clean: CMakeFiles/S3_laboratory_work_3.dir/clean
 CMakeFiles/S3_laboratory_work_3.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/S3_laboratory_work_3.dir/build.make CMakeFiles/S3_laboratory_work_3.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/S3_laboratory_work_3.dir/build.make CMakeFiles/S3_laboratory_work_3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target S3_laboratory_work_3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles --progress-num=1,2,3 "Built target S3_laboratory_work_3"
 .PHONY : CMakeFiles/S3_laboratory_work_3.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/S3_laboratory_work_3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/S3_laboratory_work_3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/S3_laboratory_work_3.dir/rule

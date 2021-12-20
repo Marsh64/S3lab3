@@ -1,5 +1,7 @@
 #include "LinkedList.h"
 
+#ifndef LinkedList_cpp
+#define LinkedList_cpp
 template <class T>
 void LinkedList<T>::Append(T item) {
     auto *new_cell = new struct element;
@@ -235,3 +237,5 @@ void LinkedList<T> :: Delete_LinkedList() {
     end_element = nullptr;
     len = 0;
 }
+
+#endif

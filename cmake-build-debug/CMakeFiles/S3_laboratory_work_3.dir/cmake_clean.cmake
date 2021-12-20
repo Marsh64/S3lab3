@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/S3_laboratory_work_3.dir/TestGraph.cpp.o"
   "CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o"
   "S3_laboratory_work_3.exe"
   "S3_laboratory_work_3.pdb"

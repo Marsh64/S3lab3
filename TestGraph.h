@@ -6,7 +6,8 @@
 #define S3_LABORATORY_WORK_3_TESTGRAPH_H
 #include "IGraph.h"
 
-void TestGrapgh();
+void TestGraph();
 void testAdding();
+void testRemoving();
 
 #endif //S3_LABORATORY_WORK_3_TESTGRAPH_H
