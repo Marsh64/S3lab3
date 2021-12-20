@@ -294,10 +294,10 @@ public:
         return colours;
     }
 
-    ArraySequence<std::pair<size_t, size_t>>* Connectivity() {
-        ArraySequence<std::pair<size_t, size_t>>* result = new ArraySequence<std::pair<size_t, size_t>>;
+    UnorderedMap<int, ArraySequence<size_t>*, hashint>* Connectivity() {
+        auto map = new UnorderedMap<int, ArraySequence<size_t>*, hashint>;
         if (adjlist.GetLength() == 0)
-            return result;
+            return map;
 
         UnorderedMap<size_t, int, hashfunc> colours;
 
@@ -314,7 +314,7 @@ public:
             LinkedList<size_t> stack;
             stack.Append(i);
             colours.Swap(i, clr);
-            result->Append({i, clr});
+            //result->Append({i, clr});
             while (stack.GetLength()) {
                 size_t& element = stack.Get(0);
                 stack.Remove(0);
@@ -329,11 +329,21 @@ public:
                         continue;
                     colours.Swap(j.key, clr);
                     stack.Append(j.key);
-                    result->Append({j.key, clr});
+                    //result->Append({j.key, clr});
                 }
             }
         }
-        return result;
+
+        for (auto val : colours){
+            if (!map->ContainsKey(val.element)) {
+                map->Add(val.element, new ArraySequence<size_t>);
+            }
+
+            map->operator[](val.element)->Append(val.key);
+
+        }
+
+        return map;
     }
 
     Path<TWeight> Dijkstra(const size_t& v1, const size_t& v2) {
