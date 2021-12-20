@@ -9,6 +9,59 @@
 #include "Sequence/SortedSequence.h"
 #include "Additional Stuctures/LinkedList.cpp"
 
+template<TWeight>
+class Path {
+private:
+    ArraySequence<size_t>* path;
+    Graph<TWeight>* graph;
+public:
+    class Error{};
+
+    Path(){
+        path = new ArraySequence<size_t>;
+        graph = new Graph<TWeght>();
+    }
+
+    explicit Path(ArraySequence<size_t>* pa, Graph<TWeight>* gr){
+        path = arr;
+        graph = gr;
+        if (pa->GetLength() < 2)
+            throw Error();
+    }
+
+    ~Path() {
+        delete path;
+    }
+
+    TWeight GetLength(){
+        TWeight weight = graph->GetWeight(path->Get(0), path->Get(1));
+
+        for (int i = 1; i < path->GetLength() - 1; i++){
+            weight += graph->GetWeight(path->Get(i), path->Get(i + 1));
+        }
+
+        return weight;
+    }
+
+    ArraySequence<size_t>* GetPath(){
+        return path;
+    }
+
+    Path<TWeight> operator + (Path<TWeight>& other) {
+        if (graph != other.graph)
+            throw Error();
+        if (path[path->GetLength() - 1] != other.path->operator[](0))
+            throw Error();
+        Path<TWeight> res(path, graph);
+
+        for (int i = 1; i < other.path->GetLength(); i++) {
+            res.path->Append(other.path->operator[](i));
+        }
+
+        return res;
+    }
+};
+
 template<class TWeight>
 class Graph {
 private:
@@ -20,7 +73,7 @@ private:
         return el1.second < el2.second;
     }
 
-    friend bool operator > (const std::pair<int, int>& p1, const std::pair<int, int>& p2) {
+    static bool colouring_cmp(const std::pair<size_t, int>& p1, const std::pair<size_t, int>& p2) {
         return p1.second > p2.second;
     }
 
@@ -120,17 +173,17 @@ public:
         adjlist.Remove(name);
     }
 
-    TWeight getWeight(const size_t& name1, const size_t& name2) {
+    TWeight GetWeight(const size_t& name1, const size_t& name2) {
         if (name1 == name2)
             throw Error();
 
-        if (name1 > adjlist.GetLength() || name2 > adjlist.GetLength() || name1 < 0 || name2 < 0)
+        if (name1 >= adjlist.GetLength() || name2 >= adjlist.GetLength() || name1 < 0 || name2 < 0)
             throw ErrorInWrongVertex();
 
-        if (!adjlist[name1] || !adjlist[name1]->ContainsKey(name1))
+        if (!adjlist[name1] || !adjlist[name1]->ContainsKey(name2))
             throw ErrorInMissingEdge();
 
-        return adjlist[name1]->Get(name2).weight;
+        return adjlist[name1]->Get(name2);
     }
     /*
     friend std::ostream &operator << (std::ostream &cout, Graph<TWeight, TName, hashfunction>& graph) {
@@ -139,7 +192,7 @@ public:
     }
      */
 
-    friend std::ostream &operator << (std::ostream &cout,const Graph<TWeight>& graph) {
+    friend std::ostream &operator << (std::ostream &cout, Graph<TWeight>& graph) {
         cout << '(';
         for (int i = 0; i < graph.adjlist.GetLength(); i++) {
             cout << '{';
@@ -168,7 +221,7 @@ public:
             return false;
 
         for (auto val : *list) {
-            if (val.element.vertex == name2)
+            if (val.key == name2)
                 return true;
         }
         return false;
@@ -188,16 +241,16 @@ public:
         if (adjlist.GetLength() == 0)
             return colours;
 
-        SortedSequence<std::pair<int, int>> degree;
+        SortedSequence<std::pair<size_t, int>, colouring_cmp> degree;
         for (int i = 0; i < adjlist.GetLength(); i++){
             degree.Add({i, VertexDegree(i)});//{вершина, степень вершины}
-            colours->Append(0);
+            colours->Append(-1);
         }
 
         int clr = 0;//цвет
 
         for (int h = 0; h < degree.GetLength(); h++) {
-            if (colours->Get(h) != 0)
+            if (colours->Get(h) != -1)
                 continue;
 
             //закрашиваем одним цветом
@@ -251,83 +304,84 @@ public:
                 }
                 for (auto j : *arr) {
                     //std::cout « j.key « ", ";
-                    if (colours.Get(j))
+                    if (colours.Get(j.key))
                         continue;
-                    colours.Swap(j, clr);
-                    stack.Append(j);
-                    result->Append({j, clr});
+                    colours.Swap(j.key, clr);
+                    stack.Append(j.key);
+                    result->Append({j.key, clr});
                 }
             }
         }
         return result;
     }
-    ArraySequence<size_t>* Dijkstra(const size_t& v1, const size_t& v2) {
-            if (v1 >= adjlist.GetLength() || v2 >= adjlist.GetLength())
+    Path<TWeight> Dijkstra(const size_t& v1, const size_t& v2) {
+        if (v1 >= adjlist.GetLength() || v2 >= adjlist.GetLength())
             throw ErrorInMissingVertex();
 
-            auto* result = new ArraySequence<size_t>;
-            if (v1 == v2) {
-                result->Append(v1);
-                return result;
-            }
+        auto* result = new ArraySequence<size_t>;
+        if (v1 == v2) {
+            result->Append(v1);
+            return result;
+        }
 
-            UnorderedMap<size_t, TWeight, hashfunc> distances;
-            UnorderedMap<size_t, size_t, hashfunc> visits;
+        UnorderedMap<size_t, TWeight, hashfunc> distances;
+        UnorderedMap<size_t, size_t, hashfunc> visits;
 
-            SortedSequence<std::pair<size_t, int>, dijkstra_cmp> list;
-            list.Add({v1, 0});
-            distances.Add(v1, 0);
-            visits.Add(v1, v1);
+        SortedSequence<std::pair<size_t, int>, dijkstra_cmp> list;
+        list.Add({v1, 0});
+        distances.Add(v1, 0);
+        visits.Add(v1, v1);
 
-            while(list.GetLength()) {
-                auto el = list.Get(0);
-                list.Remove(0);
-                //std::cout « list.GetLength() « std::endl;
-                //td::cout « visits « std::endl « distances « "\n\n";
+        while(list.GetLength()) {
+            auto el = list.Get(0);
+            list.Remove(0);
+            //std::cout « list.GetLength() « std::endl;
+            //td::cout « visits « std::endl « distances « "\n\n";
 
-                auto *arr = adjlist[el.first];
-                if (arr == nullptr)
-                    continue;
+            auto *arr = adjlist[el.first];
+            if (arr == nullptr)
+                continue;
 
-                for (auto vertex : *arr) {
-                    size_t &u = vertex.key;
-                    TWeight w_new = el.second + getWeight(el.first, u);
-                    try {
-                        int &w = distances[u];
-                        if (w > w_new) {
-                            w = w_new;
-                            visits[u] = el.first;
-                            for (int i = 0; i < list.GetLength(); i++) {
-                                if (list[i].first == u) {
-                                    list.Remove(i);
-                                    break;
-                                }
+            for (auto vertex : *arr) {
+                size_t &u = vertex.key;
+                TWeight w_new = el.second + GetWeight(el.first, u);
+                try {
+                    int &w = distances[u];
+                    if (w > w_new) {
+                        w = w_new;
+                        visits[u] = el.first;
+                        for (int i = 0; i < list.GetLength(); i++) {
+                            if (list[i].first == u) {
+                                list.Remove(i);
+                                break;
                             }
-                            list.Add({u, w});
                         }
-                    }
-                    catch (typename UnorderedMap<size_t, int, hashfunc>::AbsenceOfIndex &err) {
-                        distances.Add(u, w_new);
-                        visits.Add(u, el.first);
-                        list.Add({u, w_new});
+                        list.Add({u, w});
                     }
                 }
+                catch (typename UnorderedMap<size_t, int, hashfunc>::AbsenceOfIndex &err) {
+                    distances.Add(u, w_new);
+                    visits.Add(u, el.first);
+                    list.Add({u, w_new});
+                }
             }
+        }
 
-            if (!distances.ContainsKey(v2))
-            return result;
+        if (!distances.ContainsKey(v2))
+        return result;
 
-            auto v = v2;
-            ArraySequence<size_t> tmp;
-            while (v != v1) {
-                tmp.Append(v);
-                v = visits[v];
-            }
-            result->Append(v1);
-            for (int i = tmp.GetLength() - 1; i >= 0; i--) {
-                result->Append(tmp[i]);
-            }
-            return result;
+        auto v = v2;
+        ArraySequence<size_t> tmp;
+        while (v != v1) {
+            tmp.Append(v);
+            v = visits[v];
+        }
+        result->Append(v1);
+        for (int i = tmp.GetLength() - 1; i >= 0; i--) {
+            result->Append(tmp[i]);
+        }
+
+        return Path<TWeight>(result, this);
     }
 };
 
