@@ -34,43 +34,45 @@ LinkedList.h
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/LinkedList.h
 
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
-Sequence/Sequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/Sequence.h
-Additional Stuctures/DynamicArray.cpp
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/DynamicArray.cpp
-
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IDirectedGraphLL.h
-ArraySequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
+Sequence/ArraySequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
 Sequence/LinkedListSequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/LinkedListSequence.h
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IDirectedGraphUM.h
 Additional Stuctures/IUnorderedMap.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/IUnorderedMap.h
-ArraySequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
+Sequence/ArraySequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
 Sequence/LinkedListSequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/LinkedListSequence.h
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IGraph.h
 Additional Stuctures/IUnorderedMap.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/IUnorderedMap.h
-ArraySequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
+Sequence/ArraySequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
 Sequence/SortedSequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/SortedSequence.h
+Additional Stuctures/LinkedList.cpp
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/LinkedList.cpp
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IGraphUM.h
 Additional Stuctures/IUnorderedMap.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/IUnorderedMap.h
-ArraySequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
+Sequence/ArraySequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
 Sequence/LinkedListSequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/LinkedListSequence.h
 Sequence/SortedSequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/SortedSequence.h
+
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
+Sequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/Sequence.h
+../Additional Stuctures/DynamicArray.cpp
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/DynamicArray.cpp
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/LinkedListSequence.h
 Sequence.h
@@ -81,16 +83,20 @@ Sequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/Sequence.h
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/SortedSequence.h
-../ArraySequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
+ArraySequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
+
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/TestGraph.h
+IGraph.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IGraph.h
 
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/main.cpp
 iostream
 -
 Additional Stuctures/IDictionary.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Additional Stuctures/IDictionary.h
-ArraySequence.h
-/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/ArraySequence.h
+Sequence/ArraySequence.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/ArraySequence.h
 Sequence/LinkedListSequence.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/Sequence/LinkedListSequence.h
 IDirectedGraphLL.h
@@ -103,4 +109,6 @@ IGraphUM.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IGraphUM.h
 IGraph.h
 /cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/IGraph.h
+TestGraph.h
+/cygdrive/c/Users/adm/CLionProjects/S3_laboratory_work_3/TestGraph.h
 

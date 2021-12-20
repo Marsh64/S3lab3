@@ -7,6 +7,7 @@
 #include "IDirectedGraphUM.h"
 #include "IGraphUM.h"
 #include "IGraph.h"
+#include "IGraph (1).h"
 #include "TestGraph.h"
 
 int main() {
