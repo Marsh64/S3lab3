@@ -294,8 +294,8 @@ public:
         return colours;
     }
 
-    UnorderedMap<int, ArraySequence<size_t>*, hashint>* Connectivity() {
-        auto map = new UnorderedMap<int, ArraySequence<size_t>*, hashint>;
+    UnorderedMap<int, ArraySequence<size_t>*, umhashint>* Connectivity() {
+        auto map = new UnorderedMap<int, ArraySequence<size_t>*, umhashint>;
         if (adjlist.GetLength() == 0)
             return map;
 
