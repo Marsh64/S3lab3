@@ -9,7 +9,10 @@
 #include "Sequence/SortedSequence.h"
 #include "Additional Stuctures/LinkedList.cpp"
 
-template<TWeight>
+template<class TWeight>
+class Graph;
+
+template<class TWeight>
 class Path {
 private:
     ArraySequence<size_t>* path;
@@ -19,11 +22,11 @@ public:
 
     Path(){
         path = new ArraySequence<size_t>;
-        graph = new Graph<TWeght>();
+        graph = new Graph<TWeight>();
     }
 
     explicit Path(ArraySequence<size_t>* pa, Graph<TWeight>* gr){
-        path = arr;
+        path = pa;
         graph = gr;
         if (pa->GetLength() < 2)
             throw Error();
@@ -50,7 +53,7 @@ public:
     Path<TWeight> operator + (Path<TWeight>& other) {
         if (graph != other.graph)
             throw Error();
-        if (path[path->GetLength() - 1] != other.path->operator[](0))
+        if (path->operator[](path->GetLength() - 1) != other.path->operator[](0))
             throw Error();
         Path<TWeight> res(path, graph);
 
@@ -171,6 +174,24 @@ public:
         }
 
         adjlist.Remove(name);
+
+        for (int i = 0; i < adjlist.GetLength(); i++){
+            if (!adjlist[i])
+                continue;
+
+            auto newMap = new UnorderedMap<size_t, TWeight, hashfunc>;
+
+            for (auto val: *adjlist[i]){
+                if (val.key > name){
+                    newMap->Add(val.key - 1, val.element);
+                }
+                else{
+                    newMap->Add(val.key, val.element);
+                }
+            }
+            delete adjlist[i];
+            adjlist[i] = newMap;
+        }
     }
 
     TWeight GetWeight(const size_t& name1, const size_t& name2) {
@@ -210,7 +231,7 @@ public:
 
     bool isAdjacent(const size_t &name1, const size_t &name2){
         if (name1 == name2)
-            return true;
+            return false;
 
         if (name1 > adjlist.GetLength() || name2 > adjlist.GetLength() || name1 < 0 || name2 < 0)
             throw ErrorInWrongVertex();
@@ -255,7 +276,7 @@ public:
 
             //закрашиваем одним цветом
             for (int i = 0; i < degree.GetLength(); i++) {
-                if (colours->Get(degree[i].second) != 0)
+                if (colours->Get(degree[i].first) != -1)
                     continue;
                 bool log = true;//стоит ли красить
                 for (int m = 0; m < colours->GetLength(); m++) {
@@ -314,6 +335,7 @@ public:
         }
         return result;
     }
+
     Path<TWeight> Dijkstra(const size_t& v1, const size_t& v2) {
         if (v1 >= adjlist.GetLength() || v2 >= adjlist.GetLength())
             throw ErrorInMissingVertex();
@@ -321,7 +343,7 @@ public:
         auto* result = new ArraySequence<size_t>;
         if (v1 == v2) {
             result->Append(v1);
-            return result;
+            return Path<TWeight>(result, this);
         }
 
         UnorderedMap<size_t, TWeight, hashfunc> distances;
@@ -368,7 +390,7 @@ public:
         }
 
         if (!distances.ContainsKey(v2))
-        return result;
+        return Path<TWeight>(result, this);
 
         auto v = v2;
         ArraySequence<size_t> tmp;

@@ -19,10 +19,11 @@ CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Additional\ Stuctures/IDictio
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Additional\ Stuctures/IUnorderedMap.h
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Additional\ Stuctures/LinkedList.cpp
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Additional\ Stuctures/LinkedList.h
-CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../IDirectedGraphLL.h
-CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../IDirectedGraphUM.h
+CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Bin/IDirectedGraphLL.h
+CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Bin/IDirectedGraphLLCon.h
+CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Bin/IGraphLLCon.h
+CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Bin/IGraphUMCon.h
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../IGraph.h
-CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../IGraphUM.h
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Sequence/ArraySequence.h
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Sequence/LinkedListSequence.h
 CMakeFiles/S3_laboratory_work_3.dir/main.cpp.o: ../Sequence/Sequence.h

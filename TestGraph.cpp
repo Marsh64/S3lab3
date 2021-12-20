@@ -27,8 +27,8 @@ void testAdding(){
 
             assert(graph.isAdjacent(i, j));
             assert(graph.isAdjacent(j, i));
-            assert(graph.getWeight(i, j) == w);
-            assert(graph.getWeight(j, i) == w);
+            assert(graph.GetWeight(i, j) == w);
+            assert(graph.GetWeight(j, i) == w);
         }
         assert(graph.VertexDegree(i) == len - 1);
     }
@@ -43,7 +43,7 @@ void testRemoving(){
     Graph<int> graph2;
     Graph<int> graph3;
 
-    int len = rand()%100;
+    int len = 5;rand()%100;
     for (int i = 0; i < len; i++){
         graph1.AddVertex();
         graph2.AddVertex();
@@ -51,7 +51,7 @@ void testRemoving(){
     }
 
     for (int i = 0; i < len%25; i++){
-        graph1.RemoveVertex(i);
+        graph1.RemoveVertex(0);
         assert(graph1.Colouring()->GetLength() == len - i - 1);
     }
     //Проверялось удаление вершин из графа содержащего только веришны
@@ -68,7 +68,7 @@ void testRemoving(){
     }//сделали графы graph2 и graph3 полными
 
     for (int i = 0; i < len; i++){
-        for (int j = 0; j < len; j++){
+        for (int j = i + 1; j < len; j++){
             if (i == j)
                 continue;
 
@@ -81,12 +81,12 @@ void testRemoving(){
     //проверили удаление ребер из графа
 
     for (int i = 0; i < len%50; i++){
-        graph3.RemoveVertex(i);
-        assert(graph1.Colouring()->GetLength() == len - i - 1);
+        graph3.RemoveVertex(0);
+        std::cout << graph3.Colouring()->GetLength() << "  " << len - i - 1 << std::endl;
+        assert(graph3.Colouring()->GetLength() == len - i - 1);
         for (int j = 0; j < len - i - 1; j++){
             assert(graph3.VertexDegree(j) == len - i - 2);
         }
     }
     //проверили удаление вершин из полного графа
-
 }

@@ -11,15 +11,18 @@
 #include "TestGraph.h"
 
 int main() {
-    
+
     std::cout << "Hello, World!" << std::endl;
+    testAdding();
+    std::cout << "Hello, World!" << std::endl;
+    testRemoving();
     //ArraySequence<int> seq;
     //seq.Append(5);
     //seq.Append(6);
     //std::cout << seq.GetFirst() << std::endl;
     //std::cout << seq.GetLength() << std::endl;
     //std::cout << seq.Get(1) << std::endl;
-
+    /*
     Graph<int, int> graph;
     int n1 = 1111111;
     int n2 = 2222222;
